@@ -17,7 +17,7 @@
     </header>
     <div class="container mt-4">
         <h1 class="text-center">Formulario de Registro</h1>
-        <form id="registroForm">
+        <form id="registroForm" action="pdf.html" method="POST" target="_blank">
             <div class="form-group">
                 <label for="nombre">Nombre</label>
                 <input type="text" id="nombre" class="form-control" required>
@@ -62,8 +62,7 @@
                 <input type="text" id="procedencia" class="form-control">
             </div>
             
-            
-            
+                        
             <div class="form-group">
                 <label for="zona">Se dirige a / Zona</label>
                 <input type="text" id="zona" class="form-control">
@@ -72,7 +71,7 @@
             <div class="form-group">
                 <label for="motivo">Motivo de Visita</label>
                 <select id="motivo" class="form-control">
-                    <option value="Contenedor">Contenedor</option>
+                    <option value="Proceso">Proceso</option>
                     <option value="Reunión">Reunión</option>
                     <option value="Proveedor">Proveedor</option>
                 </select>
@@ -87,15 +86,14 @@
                 <label for="observacion">Observación</label>
                 <textarea id="observacion" class="form-control"></textarea>
             </div>
-            
+
             <div class="form-group">
-                <label for="guia">N GUIA</label>
-                <input type="text" id="guia" class="form-control">
-            </div>
-            
-            <div class="form-group">
-                <label for="licencia">N Licencia de Conducir</label>
-                <input type="text" id="licencia" class="form-control">
+                <label for="induccion">¿Recibió inducción?</label>
+                <select id="induccion" class="form-control">
+                    <option value="">-Elegir-</option> <!-- Opción por defecto -->
+                    <option value="Si">Sí</option>
+                    <option value="No">No</option>
+                </select>
             </div>
             
             <div class="form-group">
@@ -136,5 +134,43 @@
         </form>
     </div>
     <div id="mensaje" class="mensaje"></div>
+    <script>
+        function enviarFormulario() {
+            const nombre = document.getElementById("nombre").value;
+            const apellidoPaterno = document.getElementById("apellidoPaterno").value;
+            const apellidoMaterno = document.getElementById("apellidoMaterno").value;
+            const documento = document.getElementById("documentoDni").value;
+            const telefono = document.getElementById("telefono").value;
+            const correo = document.getElementById("correo").value;
+            const procedencia = document.getElementById("procedencia").value;
+            const motivo = document.getElementById("motivo").value;
+            const seguro = document.getElementById("seguro").value;
+            const fechaInicio = document.getElementById("fechaInicio").value;
+            const fechaFin = document.getElementById("fechaFin").value;
+            const induccion = document.getElementById("induccion").value;
+            const salud = document.getElementById("salud").value;
+            const observacionSalud = document.getElementById("observacionSalud").value;
+
+            // Agrega más campos según sea necesario
+
+            // Construir la URL con los datos del formulario
+            const url = `pdf.html?nombre=${nombre}&apellidoPaterno=${apellidoPaterno}
+                            &apellidoMaterno=${apellidoMaterno}
+                            &documento=${documento}
+                            &telefono=${telefono}
+                            &correo=${correo}
+                            &procedencia=${procedencia}
+                            &motivo=${motivo}
+                            &seguro=${seguro}
+                            &fechaInicio=${fechaInicio}
+                            &fechaFin=${fechaFin}
+                            &induccion=${induccion}
+                            &salud=${salud}
+                            &observacionSalud=${observacionSalud}`;
+
+            // Abrir pdf.html en una nueva ventana o pestaña
+            window.open(url, '_blank');
+        }
+    </script>
 </body>
 </html>
