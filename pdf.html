@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información de Registro</title>
+    
+    <!-- Enlazar a Bootstrap CSS a través de una CDN (contenido servido por BootstrapCDN) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <!-- Agregar estilos personalizados si es necesario -->
+    <style>
+        /* Tu estilo personalizado aquí */
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="bg-primary text-white text-center p-4">
+        <img src="logo.png" alt="Logo" class="img-fluid" style="max-width: 200px;">
+        <h1>Información de Registro</h1>
+    </header>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h2>Datos</h2>
+                        <p><span class="font-weight-bold">Nombre:</span> <span id="nombre"></span></p>
+                        <p><span class="font-weight-bold">Apellido Paterno:</span> <span id="apellidoPaterno"></span></p>
+                        <p><span class="font-weight-bold">Apellido Materno:</span> <span id="apellidoMaterno"></span></p>
+
+                        <p><span class="font-weight-bold">Documento:</span> <span id="documento"></span></p>
+                        <p><span class="font-weight-bold">Telefono:</span> <span id="telefono"></span></p>
+                        <p><span class="font-weight-bold">Correo:</span> <span id="correo"></span></p>
+
+                        <p><span class="font-weight-bold">Procedencia:</span> <span id="procedencia"></span></p>
+                        <p><span class="font-weight-bold">Motivo:</span> <span id="motivo"></span></p>
+                        <p><span class="font-weight-bold">Seguro SCTR:</span> <span id="seguro"></span></p>
+                        <p><span class="font-weight-bold">Inducción:</span> <span id="induccion"></span></p>
+                        <p><span class="font-weight-bold">Observación:</span> <span id="observacionSalud"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enlazar a Bootstrap JS y jQuery (si es necesario) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Obtener parámetros de la URL
+        const params = new URLSearchParams(window.location.search);
+
+        // Mostrar datos en la página
+        document.getElementById("nombre").textContent = params.get("nombre");
+        document.getElementById("apellidoPaterno").textContent = params.get("apellidoPaterno");
+        document.getElementById("apellidoMaterno").textContent = params.get("apellidoMaterno");
+
+        document.getElementById("documento").textContent = params.get("documento");
+        document.getElementById("telefono").textContent = params.get("telefono");
+        document.getElementById("correo").textContent = params.get("correo");
+
+        document.getElementById("procedencia").textContent = params.get("procedencia");
+        document.getElementById("motivo").textContent = params.get("motivo");
+        document.getElementById("induccion").textContent = params.get("induccion");
+        document.getElementById("observacionSalud").textContent = params.get("observacionSalud");
+
+        // Agrega más campos según sea necesario
+    </script>
+</body>
+</html>
